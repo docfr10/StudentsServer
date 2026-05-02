@@ -17,7 +17,7 @@ def get_db():
 
 
 @app.teardown_appcontext
-def close_db():
+def close_db(exception=None):
     db = g.pop("db", None)
     if db is not None:
         db.close()
